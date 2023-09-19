@@ -33,56 +33,21 @@ st.markdown("""
             - Desglose del Presupuesto
             - Mapeo de la Red
             """)    
+        
+st.write("# :blue[El despliegue de fibra óptica se realizará en dos fases:]")
+st.subheader("Fase 1:")
+st.markdown("""
+                - Se realizará un estudio de las rutas óptimas para la instalación de la fibra óptica.
+                - Se adquirirá el material necesario para el despliegue.
+                - Se obtendrán los permisos necesarios para realizar las obras.
+            """)
+st.subheader("Fase 2:")
+st.markdown("""
+            - Se instalará la fibra óptica en las rutas definidas.
+            - Se conectarán las sedes universitarias al punto de acceso central.
+            - Se realizarán pruebas de funcionamiento para garantizar la calidad del servicio.
+            """)
 
 url = 'https://www.canva.com/design/DAFh6JsOnuw/dA69ZHOLgPihR0HQ91bjaA/edit?utm_content=DAFh6JsOnuw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'
 
 
-if st.button('VER NUESTRA PRESENTACION'):
-    webbrowser.open_new_tab(url)
-
-st.title("¿Qué opina la gente?")
-# Obtener las revisiones enviadas desde la página 1 a través de la variable de sesión
-
-
-def main():
-    st.title("Página de Visualización de Reviews y Gráfica")
-
-    # Obtener los datos enviados desde la página anterior
-    params = st.experimental_get_query_params()
-    review = params.get("review", [""])[0]
-    calificacion = params.get("calificacion", [""])[0]
-    user=params.get("user", [""])[0]
-    # Obtener todas las reviews y calificaciones enviadas
-    reviews = st.session_state.get("reviews", [])
-    if review and calificacion and user:
-        reviews.append({"user": user, "calificacion": calificacion, "review": review})
-        st.session_state["reviews"] = reviews
-        st.table(reviews)
-    # Mostrar la lista de opiniones
-    if reviews:
-        st.header("Opiniones:")
-        for item in reviews:
-            st.write(f"user: {item['user']}")
-            st.write(f"Calificacion: {item['calificacion']}")
-            st.write(f"Review: {item['review']}")
-            st.write("---------")
-
-        # Mostrar la gráfica de distribución de calificaciones
-        calificaciones = [int(item['calificacion']) for item in reviews]
-        puntuaciones = [1, 2, 3, 4, 5]
-        repeticiones = [calificaciones.count(p) for p in puntuaciones]
-
-        # Crear la gráfica
-        fig, ax = plt.subplots()
-        ax.bar(puntuaciones, repeticiones)
-
-        # Configurar etiquetas y título
-        ax.set_xlabel('Calificacion')
-        ax.set_ylabel('Repeticiones')
-        ax.set_title('Distribución de calificaciones')
-
-        # Mostrar la gráfica en Streamlit
-        st.pyplot(fig)
-
-if __name__ == '__main__':
-    main()
