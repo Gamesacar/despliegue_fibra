@@ -38,7 +38,8 @@ locations = [
         'name': 'Sede Bucaramanga',
         'lat': 7.137061040191279,
         'lon': -73.12805527231112,
-        'description': 'Esta es la Sede Bucaramanga.'
+        'description': 'Esta es la Sede Bucaramanga.',
+        'image_path': "C:/Users/sajoh/Documents/GitHub/despliegue_fibra/Diseño.png"
     },
     {
         'name': 'Sede Floridablanca',
@@ -70,7 +71,7 @@ fibra_optica_route = [(7.137061040191279, -73.12805527231112),
 for location in locations:
     folium.Marker(
         location=[location['lat'], location['lon']],
-        icon=folium.Icon(color='orange'),  # Cambiar el color del marcador a naranja
+        icon=folium.CustomIcon(icon_image=location['image_path'], icon_size=(50, 50)),  # Agregar la imagen como icono personalizado
         popup=folium.Popup(location['description'], max_width=300),  # Descripción personalizada
         tooltip=location['name']
     ).add_to(m)
