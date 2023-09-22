@@ -7,8 +7,8 @@ Created on Tue May  9 15:32:07 2023
 import folium
 import streamlit as st
 from streamlit_folium import st_folium
-
-
+from PIL import Image
+import folium 
 
 
 st.set_page_config(
@@ -27,10 +27,9 @@ st.markdown("""<p style='text-align: justify;'>Una vez instalada la fibra óptic
 
             
 
-
-
 # Crear un mapa de Folium
 m = folium.Map(location=[7.137061040191279, -73.12805527231112], zoom_start=14)
+image = Image.open('Diseño.png')
 
 # Definir información de las sedes
 locations = [
@@ -39,25 +38,28 @@ locations = [
         'lat': 7.137061040191279,
         'lon': -73.12805527231112,
         'description': 'Esta es la Sede Bucaramanga.',
-        'image_path': "C:/Users/sajoh/Documents/GitHub/despliegue_fibra/Diseño.png"
+        'image_path': Image.open('Diseño.png')
     },
     {
         'name': 'Sede Floridablanca',
         'lat': 7.065556432696987,
         'lon': -73.09531850115162,
-        'description': 'Esta es la Sede Floridablanca.'
+        'description': 'Esta es la Sede Floridablanca.',
+        'image_path': Image.open('Diseño.png')
     },
     {
         'name': 'Sede Piedecuesta',
         'lat': 7.022842715565784,
         'lon': -73.05940429202747,
-        'description': 'Esta es la Sede Piedecuesta.'
+        'description': 'Esta es la Sede Piedecuesta.',
+        'image_path': Image.open('Diseño.png')
     },
     {
         'name': 'Sede Limonal',
         'lat': 7.008073410481673,
         'lon': -73.05142322999137,
-        'description': 'Esta es la Sede Limonal.'
+        'description': 'Esta es la Sede Limonal.',
+        'image_path':Image.open('Diseño.png')
     }
 ]
 
@@ -67,17 +69,37 @@ fibra_optica_route = [(7.137061040191279, -73.12805527231112),
                       (7.022842715565784, -73.05940429202747),
                       (7.008073410481673, -73.05142322999137)]
 
-# Agregar marcadores con información personalizada
+cell_tower = {
+
+    'coverage_radius': 60,  # Radio de cobertura en metros
+    'num_sides': 6,  # Número de lados del polígono (forma de panal)
+    'border_color': 'green',  # Color del borde del marcador
+    'fill_color': 'green',  # Color del relleno del marcador
+    'fill_opacity': 0.2  # Opacidad del relleno del marcador
+}
+# Agregar marcadores con información personalizada y color naranja
 for location in locations:
     folium.Marker(
         location=[location['lat'], location['lon']],
-        icon=folium.CustomIcon(icon_image=location['image_path'], icon_size=(50, 50)),  # Agregar la imagen como icono personalizado
-        popup=folium.Popup(location['description'], max_width=300),  # Descripción personalizada
+        icon=folium.Icon(color='orange'),  # Cambiar el color del marcador a naranja
+        popup=folium.Popup(location['description'], max_width=2200),  # Descripción personalizada
         tooltip=location['name']
     ).add_to(m)
 
+
+for coord in fibra_optica_route:
+    folium.RegularPolygonMarker(
+        location=coord,
+        number_of_sides=cell_tower['num_sides'],  # Número de lados (forma de panal)
+        radius=cell_tower['coverage_radius'],  # Radio de cobertura
+        color=cell_tower['border_color'],  # Color del borde del marcador
+        fill_color=cell_tower['fill_color'],  # Color del relleno del marcador
+        fill_opacity=cell_tower['fill_opacity']  # Opacidad del relleno del marcador
+    ).add_to(m)
+
 # Trazar la ruta de la fibra óptica en el mapa
-folium.PolyLine(locations=fibra_optica_route, color='red', weight=3).add_to(m)
+folium.PolyLine(locations=fibra_optica_route, color='blue', weight=3).add_to(m)
 
 # Llamar a la función para renderizar el mapa de Folium en Streamlit
 st_data = st_folium(m, width=1000)
+
