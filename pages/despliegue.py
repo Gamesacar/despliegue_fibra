@@ -18,7 +18,6 @@ st.set_page_config(
 
 st.write("# :red[MAPA DE DESPLIEGUE]🚀🚀🚀 ")
 
-st.sidebar.success("DANIEL SANTIAGO CAMACHO CALVO ")
 
 st.markdown("""<p style='text-align: justify;'>Una vez instalada la fibra óptica, 
             se conectarán las sedes universitarias al punto de acceso central. Para 

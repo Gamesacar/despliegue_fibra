@@ -10,6 +10,7 @@ import webbrowser
 import matplotlib.pyplot as plt
 import pandas as pd # Importacion estandar de la libreria Pandas
 import numpy  as np # Importacion estandar de la libreria NumPy
+import matplotlib.pyplot as plt
 
 
 st.set_page_config(
@@ -27,12 +28,37 @@ st.markdown("""<p style='text-align: justify;'>En un entorno digital en constant
     óptica no solo mejora la calidad de vida de los residentes, sino que también impulsa el desarrollo económico al proporcionar una base sólida
     para las empresas y la innovación tecnológica.<br></br></p>""",unsafe_allow_html=True)
 
+# Leyenda
+st.subheader(" :blue[**Implementación de la fibra óptica en Colombia**]")
+st.markdown("""<p style='text-align:justify;'> El crecimiento de la fibra óptica en Colombia
+            tiene un impacto positivo en 
+            el desarrollo económico y social del país. La fibra óptica permite ofrecer 
+            servicios de internet de alta velocidad a un mayor número de personas, lo que
+            facilita el acceso a la educación, la salud y otros servicios. Además, la fibra
+            óptica contribuye a la creación de empleo y al desarrollo
+            de nuevas empresas.</br></br>A continuacion el gráfico muestra el crecimiento de la 
+            implementación de la fibra óptica en Colombia en los últimos años</p>""",unsafe_allow_html=True)
+
+# Datos
+data = pd.DataFrame({
+    "Año": [2017, 2018, 2019, 2020, 2021, 2022],
+    "Kilometros de Fibra Óptica": [18.000, 22.000, 26.000, 30.000, 34.000, 38.000],
+    "colors":['#00FFFF', '#00FFFF', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF']
+
+})
+
+st.bar_chart(data=data, x="Año", y="Kilometros de Fibra Óptica", color="colors")
+
+
+
+
 st.write("# :blue[Nuestros objetivos]🎯🎯")
-st.markdown("""
-            - Presentar la Visión Estratégica
-            - Desglose del Presupuesto
-            - Mapeo de la Red
-            """)    
+st.markdown("""<p>
+            🔴 Presentar la Visión Estratégica <br></br>
+            🟢 Desglose del Presupuesto <br></br>
+            🟡 Mapeo de la Red
+            </p>
+            """,unsafe_allow_html=True)    
         
 st.write("# :blue[El despliegue de fibra óptica se realizará en dos fases:]")
 st.subheader("Fase 1:")
