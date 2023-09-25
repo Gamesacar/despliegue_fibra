@@ -23,13 +23,26 @@ st.markdown("""<p style='text-align: justify;'>Una vez instalada la fibra óptic
             ello, se utilizarán conectores especiales que permiten unir los cables 
             de fibra óptica.<br></br></p>""",unsafe_allow_html=True)
 
+images = ['Bucaramanga.jpeg',
+          'Floridablanca.jpeg',
+          'Piedecuesta.jpeg',
+          'Limonal.jpeg']
+
+# Mostrar las imágenes en una disposición en mosaico
+image_index = st.slider('Sedes en donde se desplegara el servicio', 0, len(images)-1)
+
+# Mostrar la imagen seleccionada
+st.image(images[image_index], use_column_width=True)
             
 
 # Crear un mapa de Folium
 m = folium.Map(location=[7.137061040191279, -73.12805527231112], zoom_start=14)
 image = Image.open('Diseño.png')
 
-
+st.markdown("""<p style='text-align: justify;'>Graficamente se puede observar en el 
+            siguiente mapa el despliegue, la cobertura que tendra el servicio,
+            los componentes utilizados y la posible ruta que tomara la fibra optica
+            a las diferentes sedes<br></br></p>""",unsafe_allow_html=True)
 # Definir información de las sedes
 sedes = [
     {
