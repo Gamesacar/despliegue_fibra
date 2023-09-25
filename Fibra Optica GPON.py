@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(
     page_title="FIBRA EN LA USTA",
-    page_icon="👋",
+    page_icon="📡",
 )
 
 st.write("# :red[Despliegue de fibra en la USTA]🚀 ")
@@ -44,7 +44,6 @@ data = pd.DataFrame({
     "Año": [2017, 2018, 2019, 2020, 2021, 2022],
     "Kilometros de Fibra Óptica": [18.000, 22.000, 26.000, 30.000, 34.000, 38.000],
     "colors":['#00FFFF', '#00FFFF', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF']
-
 })
 
 st.bar_chart(data=data, x="Año", y="Kilometros de Fibra Óptica", color="colors")
@@ -73,7 +72,5 @@ st.markdown("""
             - Se conectarán las sedes universitarias al punto de acceso central.
             - Se realizarán pruebas de funcionamiento para garantizar la calidad del servicio.
             """)
-
-url = 'https://www.canva.com/design/DAFh6JsOnuw/dA69ZHOLgPihR0HQ91bjaA/edit?utm_content=DAFh6JsOnuw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'
 
 
