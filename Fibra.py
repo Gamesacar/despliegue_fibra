@@ -78,7 +78,9 @@ st.write("# :blue[¿Que es una fibra GPON?]")
 
 st.markdown("""<p style='text-align:justify;'> Las redes GPON están compuestas por
             diferentes equipos para llevar la conexión a la red y a Internet por la
-            fibra óptica</p>""",unsafe_allow_html=True)
+            fibra óptica,es un estándar de tecnología de acceso a las telecomunicaciones
+            que utiliza una misma instalación de fibra óptica para funcionar y dar servicios de voz,
+            datos y TV de alta velocidad, con una velocidad superior a 1GBps</p>""",unsafe_allow_html=True)
             
 gpon = Image.open('gpon.png')
 st.image(gpon, caption='Fibra')
@@ -94,7 +96,7 @@ st.markdown("""<p style='text-align:justify;'>Primero la OLT (Optical Line Termi
 st.write("# :blue[Limitantes de distancia]")
 st.markdown("""<p>
             🔴 Alcance lógico máximo: 60 km <br></br>
-            🟢 Distancia máxima de fibra entre los puntos de envío / recepción (S / R) y de recepción / envío (R / S): 20 kmo <br></br>
+            🟢 Distancia máxima de fibra recepción (S / R) y de recepción / envío (R / S): 20 km <br></br>
             🟡 Tasa: 1.24416 Gbps de subida, 2.48832 Gbps de descarga
             </p>
             """,unsafe_allow_html=True)        

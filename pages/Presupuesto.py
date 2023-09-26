@@ -110,3 +110,17 @@ if sede_info:
     st.table(tabla_info_componentes)
 else:
     st.write("Seleccione una sede para ver sus componentes.")
+    
+button = st.button("Ir a la página web", url="https://www.ztocable.com/product-category/fiber-optic-cable?keyword=optic%20cable&placement=&gclid=CjwKCAjwgsqoBhBNEiwAwe5w0ztIErlIRxEKViRyX5mzXD5O2cV8lr7BogEncBVPwShgefx6BoCcRgQAvD_BwE")
+
+# Estilo del botón
+
+button.style({
+    "backgroundColor": "#0000FF",
+    "color": "#FFFFFF",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "borderRadius": 5,
+    "width": "200px",
+    "height": "50px",
+})    
